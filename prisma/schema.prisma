@@ -24,7 +24,7 @@ model Users {
 }
 
 model Categories {
-  id            Int    @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   name String @db.VarChar(35)
 
   posts News_list[]
@@ -67,4 +67,29 @@ model Comments {
 
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp()
+}
+
+model socials {
+  id        Int      @id @default(autoincrement())
+  facebook  String   @db.VarChar(200)
+  youtube   String   @db.VarChar(200)
+  twitter   String   @db.VarChar(200)
+  linkedin  String   @db.VarChar(200)
+  about     String   @db.Text
+  address   String   @db.Text
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model subscribers {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique @db.VarChar(100)
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+model policies {
+  id       Int    @id @default(autoincrement())
+  long_des String @db.LongText
+  type     String @db.VarChar(50)
 }
