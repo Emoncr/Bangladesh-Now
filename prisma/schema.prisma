@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,4 +6,65 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
-model
+
+model Users {
+  id Int @id @default(autoincrement())
+
+  firstName String @db.VarChar(50)
+  lastName  String @db.VarChar(50)
+  email     String @db.VarChar(50)
+  mobile    String @db.VarChar(20)
+  password  String
+  otp       String @default("000000")
+
+  comments Comments[]
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp()
+}
+
+model Categories {
+  id            Int    @id @default(autoincrement())
+  name String @db.VarChar(35)
+
+  posts News_list[]
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp()
+}
+
+model News_list {
+  id Int @id @default(autoincrement())
+
+  title     String @db.VarChar(150)
+  short_des String @db.VarChar(350)
+  img1      String
+  img2      String
+  img3      String
+  img4      String
+  keywords  String
+  long_des  String @db.LongText
+  type      String
+
+  commnets Comments[]
+
+  catID Int
+
+  Categories Categories @relation(fields: [catID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp()
+}
+
+model Comments {
+  id Int @id @default(autoincrement())
+
+  userID Int
+  Users  Users @relation(fields: [userID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  postID    Int
+  News_list News_list @relation(fields: [postID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp()
+}
