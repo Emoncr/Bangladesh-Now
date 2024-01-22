@@ -12,7 +12,7 @@ model Users {
 
   firstName String @db.VarChar(50)
   lastName  String @db.VarChar(50)
-  email     String @db.VarChar(50)
+  email     String @unique @db.VarChar(50)
   mobile    String @db.VarChar(20)
   password  String
   otp       String @default("000000")
