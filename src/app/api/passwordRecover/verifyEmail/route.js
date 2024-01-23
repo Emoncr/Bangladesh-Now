@@ -26,13 +26,10 @@ export const POST = async (req, res, next) => {
     });
 
     return NextResponse.json(
-      { status: "success", updateOTP, message: `OTP send to ${mailTo} ` },
+      { success: true, updateOTP, message: `OTP send to ${mailTo} ` },
       { status: 201 }
     );
   } catch (error) {
-    return NextResponse.json(
-      { status: "failed", error: error.toString() },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error }, { status: 500 });
   }
 };
