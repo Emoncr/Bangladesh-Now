@@ -2,6 +2,7 @@ import { GenarateToken } from "@/utils/JWTHelper";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+import { responseSuccess } from "@/utils/response";
 
 export const POST = async (req, res, next) => {
   const reqBody = await req.json();
@@ -15,10 +16,7 @@ export const POST = async (req, res, next) => {
         { status: "fail", message: "User not found" },
         { status: 401 }
       );
-    const isValidPassword = bcrypt.compareSync(
-      reqBody.password,
-      user.password
-    );
+    const isValidPassword = bcrypt.compareSync(reqBody.password, user.password);
     if (!isValidPassword)
       return NextResponse.json(
         { status: "fail", message: "Wrong credential" },
@@ -29,13 +27,13 @@ export const POST = async (req, res, next) => {
     const expeireDureation = new Date(Date.now() + 168 * 60 * 60 * 1000);
     const cookieString = `token=${token}; expires=${expeireDureation.toUTCString()}; path=/`;
 
-    const {password, ...rest} = user;
-
+    const { password, ...rest } = user;
 
     return NextResponse.json(
-      { status: "success", user: rest, },
-      { status: 200 , headers:{"set-cookie":cookieString}}
+      { status: "success", user: rest },
+      { status: 200, headers: { "set-cookie": cookieString } }
     );
+    
   } catch (error) {
     return NextResponse.json({ status: "fail", message: error });
   }
