@@ -2,7 +2,6 @@ import { GenarateToken } from "@/utils/JWTHelper";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
-import { responseSuccess } from "@/utils/response";
 
 export const POST = async (req, res, next) => {
   const reqBody = await req.json();
