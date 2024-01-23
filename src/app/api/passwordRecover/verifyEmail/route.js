@@ -26,7 +26,7 @@ export const POST = async (req, res, next) => {
     });
 
     return NextResponse.json(
-      { success: true, updateOTP, message: `OTP send to ${mailTo} ` },
+      { success: true,  message: `OTP send to ${mailTo} ` },
       { status: 201 }
     );
   } catch (error) {
