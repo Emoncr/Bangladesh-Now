@@ -33,8 +33,7 @@ export const POST = async (req, res, next) => {
       { status: "success", user: rest },
       { status: 200, headers: { "set-cookie": cookieString } }
     );
-    
   } catch (error) {
-    return NextResponse.json({ status: "fail", message: error });
+    return NextResponse.json({ status: "fail", error }, { status: 500 });
   }
 };
