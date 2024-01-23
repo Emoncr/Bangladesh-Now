@@ -13,16 +13,11 @@ export const POST = async (req, res, next) => {
     await prisma.Users.create({
       data: reqBody,
     });
-
     return NextResponse.json(
-      { status: "success", message: "Registration Successfull" },
+      { success: true, message: "Registration Successfull" },
       { status: 201 }
     );
   } catch (error) {
-    return NextResponse.json({
-      status: "fali",
-      error,
-      message: toString(error),
-    });
+    return NextResponse.json({ success: false, error }, { status: 500 });
   }
 };
