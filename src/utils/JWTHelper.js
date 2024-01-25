@@ -16,7 +16,6 @@ export const GenarateToken = async (email, id) => {
 
 export const VerifyToken = async (token) => {
   const secret = new TextEncoder().encode(process.env.JWT_SECRET_KEY);
-  const decodedToken = jwtVerify(token, secret);
-
+  const decodedToken = await jwtVerify(token, secret);
   return decodedToken["payload"];
 };
