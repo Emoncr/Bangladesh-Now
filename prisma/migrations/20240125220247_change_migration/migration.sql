@@ -10,6 +10,7 @@ CREATE TABLE `Users` (
     `createdAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
+    UNIQUE INDEX `Users_email_key`(`email`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -54,7 +55,7 @@ CREATE TABLE `Comments` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `socials` (
+CREATE TABLE `Socials` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `facebook` VARCHAR(200) NOT NULL,
     `youtube` VARCHAR(200) NOT NULL,
@@ -69,18 +70,18 @@ CREATE TABLE `socials` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `subscribers` (
+CREATE TABLE `Subscribers` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `email` VARCHAR(100) NOT NULL,
     `createdAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updatedAt` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
 
-    UNIQUE INDEX `subscribers_email_key`(`email`),
+    UNIQUE INDEX `Subscribers_email_key`(`email`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `policies` (
+CREATE TABLE `Solicies` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `long_des` LONGTEXT NOT NULL,
     `type` VARCHAR(50) NOT NULL,

@@ -28,5 +28,5 @@ export const middleware = async (req, res, next) => {
 }; 
 
 export const config = {
-  matcher: ["/api/user/profile/:path*"],
+  matcher: ["/api/user/profile/:path*", ],
 };
