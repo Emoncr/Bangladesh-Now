@@ -3,6 +3,7 @@ import { VerifyToken } from "./utils/JWTHelper";
 import { throwError } from "./utils/response";
 
 export const middleware = async (req, res, next) => {
+    console.log("middleware");
   try {
     const token = req.cookies.get("token");
     if (!token)
@@ -17,14 +18,16 @@ export const middleware = async (req, res, next) => {
     requestHeader.set("id", payload["id"]);
     requestHeader.set("email", payload["email"]);
 
-
     return NextResponse.next({ request: { headers: requestHeader } });
   } catch (error) {
     const requestHeader = req.headers;
     requestHeader.set("id", false);
     requestHeader.set("email", false);
 
-    
     return NextResponse.next({ request: { headers: requestHeader } });
   }
+}; 
+
+export const config = {
+  matcher: ["/api/user/profile/:path*"],
 };
