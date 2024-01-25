@@ -16,11 +16,15 @@ export const middleware = async (req, res, next) => {
     const requestHeader = req.headers;
     requestHeader.set("id", payload["id"]);
     requestHeader.set("email", payload["email"]);
+
+
     return NextResponse.next({ request: { headers: requestHeader } });
   } catch (error) {
     const requestHeader = req.headers;
     requestHeader.set("id", false);
     requestHeader.set("email", false);
+
+    
     return NextResponse.next({ request: { headers: requestHeader } });
   }
 };
