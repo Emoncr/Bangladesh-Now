@@ -1,25 +1,22 @@
-import { throwError } from "@/utils/response";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-export const GET = async (req, res, next) => {
+export const POST = async (req, res, next) => {
   try {
-    const { searchParams } = new URL(req.url);
-    const paramsId = parseInt(searchParams.get("id"));
     const requestId = parseInt(req.headers.get("id"));
-    if (requestId !== paramsId) return throwError(401, "User isn't valid");
-
+    const reqBody = await req.json();
     const prisma = new PrismaClient();
 
-    const user = await prisma.Users.findUnique({
+    const user = await prisma.Users.update({
       where: { id: requestId },
+      data: reqBody,
     });
 
-    const { password,otp, ...rest } = user;
+    const { password, otp, ...rest } = user;
     return NextResponse.json({
       success: true,
-      message: "User founded",
-      user:rest,
+      message: "User updated successfully",
+     user: rest,
     });
   } catch (error) {
     return NextResponse.json(
