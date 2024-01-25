@@ -5,20 +5,21 @@ import { NextResponse } from "next/server";
 export const GET = async (req, res, next) => {
   try {
     const { searchParams } = new URL(req.url);
-    const paramsId =parseInt(searchParams.get("id"));
+    const paramsId = parseInt(searchParams.get("id"));
     const requestId = parseInt(req.headers.get("id"));
     if (requestId !== paramsId) return throwError(401, "User isn't valid");
 
-    const prisma = new PrismaClient(); 
+    const prisma = new PrismaClient();
 
     const user = await prisma.Users.findUnique({
       where: { id: requestId },
     });
 
+    const { password,otp, ...rest } = user;
     return NextResponse.json({
       success: true,
       message: "User founded",
-      user,
+      user:rest,
     });
   } catch (error) {
     return NextResponse.json(
