@@ -3,7 +3,6 @@ import { VerifyToken } from "./utils/JWTHelper";
 import { throwError } from "./utils/response";
 
 export const middleware = async (req, res, next) => {
-    console.log("middleware");
   try {
     const token = req.cookies.get("token");
     if (!token)
