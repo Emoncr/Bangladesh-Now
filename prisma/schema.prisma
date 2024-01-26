@@ -89,7 +89,7 @@ model Subscribers {
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
 
-model Solicies {
+model Policy {
   id       Int    @id @default(autoincrement())
   long_des String @db.LongText
   type     String @db.VarChar(50)
