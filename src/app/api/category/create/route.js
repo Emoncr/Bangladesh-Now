@@ -1,19 +1,18 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-export const GET = async (req, res, next) => {
+export const POST = async (req, res, next) => {
   try {
+    const reqBody = await req.json();
     const prisma = new PrismaClient();
-    const result = await prisma.Socials.findMany(
-      {
-        select:{facebook:true,twitter:true, linkedin:true,youtube:true }
-      }
-    );
-
-
+    const result = await prisma.Categories.create({
+      data: reqBody,
+      select: { name: true, id: true },
+    });
     return NextResponse.json(
       {
         success: true,
+        message: "A new category created",
         result,
       },
       { status: 201 }

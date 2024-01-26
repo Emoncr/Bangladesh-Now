@@ -1,19 +1,21 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-export const GET = async (req, res, next) => {
+export const POST = async (req, res, next) => {
   try {
+    const reqBody = await req.json();
     const prisma = new PrismaClient();
-    const result = await prisma.Socials.findMany(
-      {
-        select:{facebook:true,twitter:true, linkedin:true,youtube:true }
-      }
-    );
+    const {id, ...rest}= reqBody; 
 
-
+    const result = await prisma.Categories.update({
+      where: {id},
+      data:rest,
+      select:{id:true,name:true}
+    });
     return NextResponse.json(
       {
         success: true,
+        message: "Categoru updated successfully",
         result,
       },
       { status: 201 }
