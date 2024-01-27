@@ -1,4 +1,3 @@
-import { throwError } from "@/utils/response";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
@@ -6,8 +5,6 @@ export const POST = async (req, res, next) => {
   try {
     const reqBody = await req.json();
     const prisma = new PrismaClient();
-
-
 
     const news = await prisma.News_list.create({
       data: reqBody,
