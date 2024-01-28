@@ -7,12 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
+      colors: {
+        brand: "#F60D2B",
+        des_color: "#7e7e7e",
+        heading_color: "#111",
+      },
+      boxShadow: {
+        "loginBoxShadow": "10px 10px 10px 10px rgba(0, 0, 0, 0.25)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
