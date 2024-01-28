@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <NextTopLoader
-          color="#D1A054"
+          color="#F60D2B"
           initialPosition={0.08}
           crawlSpeed={200}
           height={4}

@@ -14,9 +14,10 @@ module.exports = {
         brand: "#F60D2B",
         des_color: "#7e7e7e",
         heading_color: "#111",
+        offWhite_bg:"#f6f6f6"
       },
       boxShadow: {
-        "loginBoxShadow": "10px 10px 10px 10px rgba(0, 0, 0, 0.25)",
+        "brandShadow": "0 0 15px rgba(0, 0, 0, .15)",
       },
     },
   },

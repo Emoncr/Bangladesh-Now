@@ -1,9 +1,13 @@
-import Image from 'next/image'
+import FeatureNews from '@/components/FeatureNews'
+import TopBanner from '@/components/TopBanner'
+import TopHeader from '@/components/topHeader'
 
 export default function Home() {
   return (
-    <div>
-      <h1 className='font-inter'>Next Js</h1>
-    </div>
+    <>
+      {/* <TopHeader /> */}
+      <TopBanner />
+      <FeatureNews />
+    </>
   )
 }
