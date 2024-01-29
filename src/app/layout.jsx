@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
+import SiteFooter from "@/components/SiteFooter";
+import TopBanner from '@/components/TopBanner'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,7 +26,9 @@ export default function RootLayout({ children }) {
           crawl={true}
           showSpinner={false}
         />
+        <TopBanner />   
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
