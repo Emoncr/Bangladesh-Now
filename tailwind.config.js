@@ -12,7 +12,7 @@ module.exports = {
       },
       colors: {
         brand: "#F60D2B",
-        des_color: "#7e7e7e",
+        des_color: "#444",
         heading_color: "#111",
         offWhite_bg:"#f6f6f6"
       },

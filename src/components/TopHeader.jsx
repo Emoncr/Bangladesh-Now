@@ -8,8 +8,8 @@ const TopHeader = () => {
     <header className='py-3 bg-offWhite_bg'>
       <div className="container grid grid-cols-2">
         <div className='flex items-center justify-start gap-3'>
-          <p><Link href={""} className='text-sm font-inter text-heading_color font-bold duration-500 hover:text-brand'>Resister</Link></p>
-          <p><Link href={""} className='text-sm font-inter text-heading_color font-bold duration-500 hover:text-brand'>Login</Link></p>
+          <p><Link href={"/resister"} className='text-sm font-inter text-heading_color font-bold duration-500 hover:text-brand'>Resister</Link></p>
+          <p><Link href={"/login"} className='text-sm font-inter text-heading_color font-bold duration-500 hover:text-brand'>Login</Link></p>
         </div>
         <div className='flex items-center justify-end gap-6'>
           <p>
