@@ -1,14 +1,18 @@
 import FeatureNews from '@/components/FeatureNews'
 import NewsList from '@/components/NewsList'
+import PlainLayout from '@/components/PlainLayout'
 
 
 
-export default  function Home() {
+export default function Home() {
 
   return (
     <>
-      <FeatureNews />
-      <NewsList />
+      <PlainLayout>
+        <FeatureNews />
+        <NewsList />
+      </PlainLayout>
+
     </>
   )
 }

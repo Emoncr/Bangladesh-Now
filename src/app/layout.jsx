@@ -1,8 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
 
-import { cookies } from "next/headers";
-import LayoutWrapper from "@/components/LayoutWrapper";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,11 +24,17 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
 
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
+        <NextTopLoader
+          color="#F60D2B"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={4}
+          crawl={true}
+          showSpinner={false}
+        />
+        {children}
 
       </body>
-    </html>
+    </html >
   );
 }
