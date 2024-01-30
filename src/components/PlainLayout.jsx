@@ -2,15 +2,15 @@
 import SiteFooter from "@/components/SiteFooter";
 import TopBanner from '@/components/TopBanner'
 import { Toaster } from "react-hot-toast";
-import { checkLogin } from "@/utils/checkAuth";
 
 
-const PlainLayout = ({ children }) => {
-    const isLogin = checkLogin();
+
+const PlainLayout = (props) => {
+
     return (
         <>
-            <TopBanner isLogin={isLogin} />
-                {children}
+            <TopBanner/>
+            {props.children}
             <Toaster position="top-center" />
             <SiteFooter />
         </>

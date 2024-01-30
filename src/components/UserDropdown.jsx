@@ -15,7 +15,7 @@ const UserDropdown = () => {
                         <Link href={"/profile"}>Logout</Link>
                     </li>
                 </ul>
-            </div>
+            </div> 
         </div>
     )
 }
