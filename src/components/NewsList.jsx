@@ -5,7 +5,24 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 import ShortNews from './ShortNews'
 import SideNews from './SideNews'
 
-const NewsList = () => {
+
+
+async function getData() {
+
+    let latest = (await (await fetch(`http://localhost:3000/api/news_list/latest`)).json())["data"];
+    let entertainment = (await (await fetch(`http://localhost:3000/api/news_list/category?catID=8`)).json())["data"];
+
+    return { entertainment: entertainment, latest: latest, }
+}
+
+
+const NewsList = async () => {
+
+    const data = await getData()
+    const { latest, entertainment } = data;
+
+
+
     return (
         <section className='py-10 sm:py-12 pb-96 bg-white'>
             <div className="container">
@@ -17,17 +34,14 @@ const NewsList = () => {
                         </div>
                         <div className='py-6'>
                             <div className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 sm:gap-y-8 lg:gap-6 xl:gap-8 xl:gap-y-12'>
-                                <News />
-                                <div className="divider sm:hidden"></div>
-                                <News />
-                                <div className="divider sm:hidden"></div>
-                                <News />
-                                <div className="divider sm:hidden"></div>
-                                <News />
-                                <div className="divider sm:hidden"></div>
-                                <News />
-                                <div className="divider sm:hidden"></div>
-
+                                {
+                                    latest.length !== 0 && latest.map((el, index) =>
+                                        <div key={index}>
+                                            <News newsInfo={el} />
+                                            <div className="divider sm:hidden"></div>
+                                        </div>
+                                    )
+                                }
                             </div>
 
                         </div>
@@ -38,7 +52,7 @@ const NewsList = () => {
                             <SearchForm />
                         </div>
                         <div className="treanding_container md:mt-5">
-                            <SideNews />
+                            <SideNews newsInfo={entertainment} />
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,8 @@
-import RegisterForm from '@/components/Site Forms/RegisterForm'
-import Link from 'next/link'
+
+import RecoverPassForm from '@/components/Site Forms/RecoverPassForm'
 import React from 'react'
 
-const Resistration = () => {
-
+const RecoverPassword = () => {
     return (
         <section className='bg-gray-100 min-h-screen'>
             <div className="container">
@@ -14,10 +13,10 @@ const Resistration = () => {
                         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
                             <div className="max-w-md mx-auto">
                                 <div>
-                                    <h3 className="text-2xl font-semibold font-inter">Resister</h3>
+
                                 </div>
                                 <div className="divide-y divide-gray-200">
-                                    <RegisterForm />
+                                    <RecoverPassForm/>
                                 </div>
                             </div>
                         </div>
@@ -28,4 +27,4 @@ const Resistration = () => {
     )
 }
 
-export default Resistration
+export default RecoverPassword
