@@ -9,7 +9,7 @@ async function getData() {
 
 const SideNews = async () => {
     const entertainment = await getData();
-console.log(entertainment);
+
     return (
         <div>
             <div className="news_list_heading pb-3 border-b-2 border-b-brand w-full ">
@@ -18,7 +18,7 @@ console.log(entertainment);
             <div className='mt-4 grid sm:grid-cols-2 md:grid-cols-1 gap-3'>
                 {
                     entertainment?.length !== 0 && entertainment?.map((info, index) =>
-                        <ShortNews info={info} />
+                        <ShortNews info={info} key={index} />
                     )
                 }
             </div>
