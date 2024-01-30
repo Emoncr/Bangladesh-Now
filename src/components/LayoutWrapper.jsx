@@ -9,11 +9,11 @@ const LayoutWrapper = async ({ children }) => {
 
 
 
-    const isLogin = checkLogin()
-
+    // const isLogin = checkLogin()
+ 
     return (
         <>
-            <NextTopLoader
+            {/* <NextTopLoader
                 color="#F60D2B"
                 initialPosition={0.08}
                 crawlSpeed={200}
@@ -24,7 +24,7 @@ const LayoutWrapper = async ({ children }) => {
             <TopBanner isLogin={isLogin} />
             {children}
             <Toaster position="top-center" />
-            <SiteFooter />
+            <SiteFooter /> */}
         </>
     )
 }

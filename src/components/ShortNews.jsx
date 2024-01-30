@@ -1,15 +1,15 @@
-
+"use client"
 
 import { useRouter } from "next/navigation"
 
-const ShortNews = ({ info }) => {
+const ShortNews = ({info}) => {
 
     const router = useRouter();
 
 
     return (
         <div
-            onClick={() => router.push("/login")}
+            onClick={() => router.push(`/news_details/${info.id}`)}
             className='grid grid-cols-5 gap-3 items-center cursor-pointer'
         >
             <div className="image-container col-span-2">
@@ -25,7 +25,6 @@ const ShortNews = ({ info }) => {
                 </p>
             </div>
         </div>
-
     )
 }
 

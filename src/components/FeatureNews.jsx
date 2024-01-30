@@ -1,21 +1,18 @@
-
-
 import { FaClock } from "react-icons/fa";
-
 
 
 async function getData() {
 
-  let feature = (await (await fetch(`http://localhost:3000/api/news_list/type?type=feature`)).json())["data"];
-  let popular = (await (await fetch(`http://localhost:3000/api/news_list/type?type=popular`)).json())["data"];
+  let feature = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`)).json())["data"];
+  let popular = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=popular`)).json())["data"];
 
-  return { feature: feature, popular: popular, }
+  return { feature, popular }
 }
 
 const FeatureNews = async () => {
   const data = await getData()
+  const { feature, popular } = data;
 
-  const { feature, popular } = data
 
 
   return (
@@ -25,7 +22,7 @@ const FeatureNews = async () => {
 
         <div className="main_feature grid grid-cols-2 gap-5">
           {
-            feature.length !== 0 && feature.map((el, index) =>
+            feature?.length !== 0 && feature?.map((el, index) =>
               <div key={index}>
                 <div className="image_container relative ">
                   <img src={el.img1} className='w-full object-cover' alt="feature" />
@@ -43,7 +40,7 @@ const FeatureNews = async () => {
               </div>
             )
           }
-        </div>
+        </div> 
 
 
 
@@ -53,7 +50,7 @@ const FeatureNews = async () => {
         <div className="other_feature mt-5 grid grid-cols-3 gap-4">
 
           {
-            popular.length !== 0 && popular.map((el, index) =>
+            popular?.length !== 0 && popular?.map((el, index) =>
               <div key={index}>
                 <div className="image_container relative ">
                   <img src={el.img1} className='w-full object-cover' alt="feature" />

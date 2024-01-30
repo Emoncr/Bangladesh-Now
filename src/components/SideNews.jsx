@@ -1,7 +1,15 @@
 import ShortNews from './ShortNews'
 
-const SideNews = ({ newsInfo }) => {
+async function getData() {
+    let entertainment = (await (await fetch(`${process.env.BASE_URL}/api/news_list/category?catID=8`)).json())["data"];
 
+    return entertainment
+}
+
+
+const SideNews = async () => {
+    const entertainment = await getData();
+console.log(entertainment);
     return (
         <div>
             <div className="news_list_heading pb-3 border-b-2 border-b-brand w-full ">
@@ -9,8 +17,8 @@ const SideNews = ({ newsInfo }) => {
             </div>
             <div className='mt-4 grid sm:grid-cols-2 md:grid-cols-1 gap-3'>
                 {
-                    newsInfo.length !== 0 && newsInfo.map((info, index) =>
-                        <ShortNews info={info}  />
+                    entertainment?.length !== 0 && entertainment?.map((info, index) =>
+                        <ShortNews info={info} />
                     )
                 }
             </div>

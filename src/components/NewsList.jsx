@@ -9,17 +9,16 @@ import SideNews from './SideNews'
 
 async function getData() {
 
-    let latest = (await (await fetch(`http://localhost:3000/api/news_list/latest`)).json())["data"];
-    let entertainment = (await (await fetch(`http://localhost:3000/api/news_list/category?catID=8`)).json())["data"];
+    let latest = (await (await fetch(`${process.env.BASE_URL}/api/news_list/latest`)).json())["data"];
 
-    return { entertainment: entertainment, latest: latest, }
+
+    return latest
 }
 
 
 const NewsList = async () => {
 
-    const data = await getData()
-    const { latest, entertainment } = data;
+    const latest = await getData();
 
 
 
@@ -35,7 +34,7 @@ const NewsList = async () => {
                         <div className='py-6'>
                             <div className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 sm:gap-y-8 lg:gap-6 xl:gap-8 xl:gap-y-12'>
                                 {
-                                    latest.length !== 0 && latest.map((el, index) =>
+                                    latest?.length !== 0 && latest?.map((el, index) =>
                                         <div key={index}>
                                             <News newsInfo={el} />
                                             <div className="divider sm:hidden"></div>
@@ -52,7 +51,7 @@ const NewsList = async () => {
                             <SearchForm />
                         </div>
                         <div className="treanding_container md:mt-5">
-                            <SideNews newsInfo={entertainment} />
+                            <SideNews />
                         </div>
                     </div>
                 </div>
