@@ -5,14 +5,18 @@ import Link from 'next/link'
 import SIteNavbar from './SIteNavbar'
 import { usePathname } from 'next/navigation'
 
-const TopBanner = () => {
+const TopBanner = ({isLogin}) => {
     const pathName = usePathname()
+
+
+
+ 
     return (
         <>
             {
-                !pathName.startsWith("/resister") && !pathName.startsWith("/login") &&
+                !pathName.startsWith("/resister") && !pathName.startsWith("/login") && !pathName.startsWith("/recover_password") &&
                 <>
-                    <TopHeader></TopHeader>
+                    <TopHeader isLogin={{isLogin}} ></TopHeader>
                     <section className='py-5 pb-0 bg-white shadow-brandShadow'>
                         <div className="container grid grid-cols-12 items-center">
                             <div className="logo col-span-4">

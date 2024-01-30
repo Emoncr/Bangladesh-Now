@@ -5,7 +5,7 @@ const SiteFooter = () => {
   return (
     <>
       {
-        !pathName.startsWith("/resister") && !pathName.startsWith("/login") &&
+    !pathName.startsWith("/resister") && !pathName.startsWith("/login") && !pathName.startsWith("/recover_password") &&
         <footer className="bg-[#262626]">
           <div className="container px-4 py-16 sm:px-6 lg:px-8">
             <div className="lg:flex lg:items-start lg:gap-8">

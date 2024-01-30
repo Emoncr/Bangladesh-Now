@@ -14,6 +14,7 @@ export const POST = async (req, res, next) => {
     if (!isValidUser) return throwError(404, "User information not found");
 
     const newHashedPass = bcrypt.hashSync(reqBody.newPassword, 10);
+  
     const updatePassword = await prisma.Users.update({
       where: { id: isValidUser.id },
       data: { password: newHashedPass, otp:"000000" },
