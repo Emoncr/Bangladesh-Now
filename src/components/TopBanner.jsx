@@ -3,8 +3,16 @@ import TopHeader from './TopHeader'
 import Link from 'next/link'
 import SIteNavbar from './SIteNavbar'
 
-const TopBanner = () => {
+async function getData(id) {
+    let data = (await (await fetch(`${process.env.BASE_URL}/api/category/categories`)).json())["categories"];
 
+    return data
+}
+
+
+
+const TopBanner = async () => {
+    const navItems = await getData();
     return (
         <>
             <TopHeader></TopHeader>
@@ -25,7 +33,16 @@ const TopBanner = () => {
                 </div>
                 <div className='mt-10'>
                     <div className="container flex items-center justify-center">
-                        <SIteNavbar />
+                        <nav>
+                            <ul className='flex items-center justify-center gap-10 pb-2'>
+                                {
+                                    navItems?.length !== 0 && navItems?.map(item =>
+                                        <SIteNavbar key={item.id} item={item}/>
+                                    )
+                                }
+                            </ul>
+                        </nav>
+
                     </div>
                 </div>
             </section>

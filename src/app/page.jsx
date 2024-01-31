@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <PlainLayout>
         <FeatureNews />
-        <NewsList />
+        <NewsList news={{ params: "latest",  heading: "Latest" }}/>
       </PlainLayout>
 
     </>

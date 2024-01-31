@@ -7,16 +7,17 @@ import SideNews from './SideNews'
 
 async function getData() {
 
-    let latest = (await (await fetch(`${process.env.BASE_URL}/api/news_list/latest`)).json())["data"];
+    let latest = (await (await fetch(`${process.env.BASE_URL}/api/news_list/latest`,{cache:"no-store"})).json())["data"];
 
 
     return latest
 }
 
 
-const NewsList = async () => {
+const NewsList = async ({news}) => {
 
     const latest = await getData();
+    console.log(latest);
 
     return (
         <section className='py-10 sm:py-12 bg-white'>
@@ -25,7 +26,7 @@ const NewsList = async () => {
 
                     <div className='col-span-1 md:col-span-7 lg:col-span-8'>
                         <div className="news_list_heading pb-3 border-b-2 border-b-brand w-full ">
-                            <h4 className='text-brand text-2xl font-semibold font-inter'>Latest News</h4>
+                            <h4 className='text-brand text-2xl font-semibold font-inter capitalize'>{news.heading} News</h4>
                         </div>
                         <div className='py-6'>
                             <div className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 sm:gap-y-8 lg:gap-6 xl:gap-8 xl:gap-y-12'>

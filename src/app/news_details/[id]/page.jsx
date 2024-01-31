@@ -22,10 +22,6 @@ const newsDetails = async ({ params }) => {
     const tags = generateTags(data?.keywords);
 
 
-
-
-
-
     return (
         <PlainLayout>
             <section className='py-10 sm:py-12 bg-white'>

@@ -24,6 +24,7 @@ const LoginFrom = () => {
                 toast.error(res.message)
             }
             else {
+   
                 window.location.href = '/';
             }
         } catch (error) {
@@ -68,7 +69,7 @@ const LoginFrom = () => {
                     <Link href={"/recover_password"} className="font-inter font-medium hover:underline hover:text-brand transition ">forget password?</Link>
                 </div>
                 <div className="relative mt-3 w-full">
-                    <button   disabled={loading} className="bg-brand text-white rounded-md px-6 py-2 font-inter font-semibold w-full">
+                    <button disabled={loading} className="bg-brand text-white rounded-md px-6 py-2 font-inter font-semibold w-full">
                         {
                             loading ? "Loading..." : "Login"
                         }
