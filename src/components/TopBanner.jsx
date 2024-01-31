@@ -3,12 +3,20 @@ import TopHeader from './TopHeader'
 import Link from 'next/link'
 import SIteNavbar from './SIteNavbar'
 
-async function getData(id) {
-    let data = (await (await fetch(`${process.env.BASE_URL}/api/category/categories`)).json())["categories"];
 
-    return data
+async function getData() {
+    try {
+        const res = await fetch(`${process.env.BASE_URL}/api/category/categories`);
+        const data = await res.json()
+        if (!data.success) {
+            throw new Error("Navlist Fetch failed!")
+        }
+        return data.categories
+
+    } catch (error) {
+        throw new Error("Navlist Fetch failed!")
+    }
 }
-
 
 
 const TopBanner = async () => {
@@ -37,7 +45,7 @@ const TopBanner = async () => {
                             <ul className='flex items-center justify-center gap-10 pb-2'>
                                 {
                                     navItems?.length !== 0 && navItems?.map(item =>
-                                        <SIteNavbar key={item.id} item={item}/>
+                                        <SIteNavbar key={item.id} item={item} />
                                     )
                                 }
                             </ul>

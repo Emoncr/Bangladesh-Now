@@ -6,18 +6,25 @@ import SideNews from './SideNews'
 
 
 async function getData(news) {
+    try {
+        const res = await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`,
+            { cache: "no-store" }
+        );
+        const data = await res.json()
+        if (!data.success) {
+            throw new Error("Newslist Fetch failed!")
+        }
+        return data
 
-    let latest = (await (await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`, { cache: "no-store" })).json())["data"];
-
-    return latest
+    } catch (error) {
+        throw new Error("Newslist Fetch failed!")
+    }
 }
 
 
 const NewsList = async ({ news }) => {
-
-    const latest = await getData(news);
-
-
+    const allNews = await getData(news);
+    const { data } = allNews;
 
     return (
         <section className='py-10 sm:py-12 bg-white'>
@@ -31,7 +38,7 @@ const NewsList = async ({ news }) => {
                         <div className='py-6'>
                             <div className=' grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 sm:gap-y-8 lg:gap-6 xl:gap-8 xl:gap-y-12'>
                                 {
-                                    latest?.length !== 0 && latest?.map((el, index) =>
+                                    data?.length !== 0 && data?.map((el, index) =>
                                         <div key={index}>
                                             <News newsInfo={el} />
                                             <div className="divider sm:hidden"></div>
