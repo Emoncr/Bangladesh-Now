@@ -1,8 +1,6 @@
 import React from 'react'
 import SearchForm from './SearchForm'
 import News from './News'
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
-import ShortNews from './ShortNews'
 import SideNews from './SideNews'
 
 
@@ -20,10 +18,8 @@ const NewsList = async () => {
 
     const latest = await getData();
 
-
-
     return (
-        <section className='py-10 sm:py-12 pb-96 bg-white'>
+        <section className='py-10 sm:py-12 bg-white'>
             <div className="container">
                 <div className="newsListNav  grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-x-12 w-full">
 
@@ -51,7 +47,7 @@ const NewsList = async () => {
                             <SearchForm />
                         </div>
                         <div className="treanding_container md:mt-5">
-                            <SideNews />
+                            <SideNews news={{ params: "category", value: "catID=8",heading:"Entertainment" }} />
                         </div>
                     </div>
                 </div>
