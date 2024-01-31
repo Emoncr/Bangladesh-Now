@@ -12,15 +12,24 @@ async function getData(news) {
         );
         const data = await res.json()
         if (!data.success) {
-            throw new Error("Newslist Fetch failed!")
+            throw new Error("Newslist Fetch failed!" ,data)
         }
         return data
 
     } catch (error) {
-        throw new Error("Newslist Fetch failed!")
+        throw new Error("Newslist Fetch failed!", error)
     }
 }
+// async function getData(news) {
+//     try {
+//         let data = await (await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`,
+//         { cache: "no-store" })).json();
+//         return data
 
+//     } catch (error) {
+//         throw new Error("Newslist Fetch failed!")
+//     }
+// }
 
 const NewsList = async ({ news }) => {
     const allNews = await getData(news);
