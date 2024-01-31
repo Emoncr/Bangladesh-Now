@@ -3,27 +3,33 @@ import PlainLayout from '@/components/PlainLayout'
 import SearchForm from '@/components/SearchForm';
 import SideNews from '@/components/SideNews';
 
+
 async function getData(id) {
-    let newsDetails = (await (await fetch(`${process.env.BASE_URL}/api/news_list/details?id=${id}`)).json())["data"];
-
-    return newsDetails
+    try {
+        const requestData = await fetch(`${process.env.BASE_URL}/api/news_list/details?id=${id}`);
+        const res = await requestData.json()
+        
+        if (!res.success) {
+            throw new Error("News details data fetch failed!")
+        }
+        return res.data
+    } catch (error) {
+        throw new Error("News details data fetch failed!")
+    }
 }
-
 
 
 const newsDetails = async ({ params }) => {
     const data = await getData(params.id);
 
     function generateTags(text) {
+        if (!text) return
         const words = text.split(/\s+/);
         return words;
+
     }
 
     const tags = generateTags(data?.keywords);
-
-
-
-
 
 
     return (
@@ -56,8 +62,8 @@ const newsDetails = async ({ params }) => {
                                         <p className='text-lg md:text-xl text-heading_color font-bold font-inter'>Related Tags</p>
                                         <div className='flex items-end justify-start gap-1 sm:gap-3 lg:gap-5 flex-wrap mt-2 lg:mt-7'>
                                             {
-                                                tags?.length !== 0 && tags?.map(el =>
-                                                    <p className='px-3 py-2 bg-gray-300 rounded-md text-heading_color font-semibold'>{el}</p>
+                                                tags?.length !== 0 && tags?.map((el, index) =>
+                                                    <p key={index} className='px-3 py-2 bg-gray-300 rounded-md text-heading_color font-semibold'>{el}</p>
                                                 )
                                             }
                                         </div>

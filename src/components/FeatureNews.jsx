@@ -2,11 +2,14 @@ import { FaClock } from "react-icons/fa";
 
 
 async function getData() {
+  try {
+    let feature = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`)).json())["data"];
+    let popular = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=popular`)).json())["data"];
 
-  let feature = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`)).json())["data"];
-  let popular = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=popular`)).json())["data"];
-
-  return { feature, popular }
+    return { feature, popular }
+  } catch (error) {
+    throw new Error("feature and popular news data fetch failed")
+  }
 }
 
 const FeatureNews = async () => {
@@ -40,7 +43,7 @@ const FeatureNews = async () => {
               </div>
             )
           }
-        </div> 
+        </div>
 
 
 

@@ -4,7 +4,9 @@ import { throwError } from "./utils/response";
 
 export const middleware = async (req, res, next) => {
   try {
+    console.log(req.cookies.getAll());
     const token = req.cookies.get("token");
+
     if (!token)
       return throwError(
         401,
