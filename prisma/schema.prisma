@@ -59,6 +59,8 @@ model News_list {
 model Comments {
   id Int @id @default(autoincrement())
 
+  commentText String
+
   userID Int
   Users  Users @relation(fields: [userID], references: [id], onDelete: Restrict, onUpdate: Cascade)
 

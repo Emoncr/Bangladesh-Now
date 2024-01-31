@@ -1,6 +1,5 @@
 "use client"
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -9,7 +8,6 @@ const LoginFrom = () => {
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState({})
 
-    const router = useRouter()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
