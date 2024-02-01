@@ -2,7 +2,28 @@
 @tailwind components;
 
 .container {
-  @apply max-w-[1400px] mx-auto px-5 sm:px-6;
+  @apply max-w-[1920px] mx-auto px-5 sm:px-6 lg:px-10 2xl:px-16;
+}
+.large_container {
+  @apply max-w-[1800px] md:max-w-[1968px] mx-auto px-5 sm:px-6 lg:px-10 2xl:px-16;
+}
+.slider_custom_dot .slick-dots li {
+  @apply !h-auto !w-auto;
+}
+.slider_custom_dot .slick-dots li button {
+  @apply !h-0 !w-0 md:!h-3 md:!w-3 lg:!h-4 lg:!w-4;
+}
+.slider_custom_dot .slick-dots li button:before {
+  @apply !text-[#D0D0D0]  !text-[8px] sm:text-[10px] md:text-[12px] lg:!text-[14px] !opacity-100;
+}
+.slider_custom_dot .slick-dots li.slick-active button:before {
+  @apply !text-[#007AFF] !opacity-100;
+}
+/* //========Slider section css ==========// */
+
+.slider_cotnainer .slick-list > div {
+  display: flex !important;
+  gap: 24px !important;
 }
 
 @tailwind utilities;
