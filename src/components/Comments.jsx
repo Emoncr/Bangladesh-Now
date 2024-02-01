@@ -1,7 +1,8 @@
 import CommentForm from './Site Forms/CommentForm'
 import CommentList from './CommentList'
 
-const Comments = () => {
+const Comments = ({postID}) => {
+
     return (
         <div>
             <div className='flex items-center justify-start gap-2 '>
@@ -11,8 +12,8 @@ const Comments = () => {
                 <div className='h-[2px] w-full bg-gray-300 rounded-sm'>
                 </div>
             </div>
-            <CommentForm />
-            <CommentList />
+            <CommentForm postID={postID}/>
+            <CommentList postID={postID} />
         </div>
     )
 }

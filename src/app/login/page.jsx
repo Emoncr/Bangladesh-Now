@@ -1,8 +1,14 @@
 import LoginFrom from '@/components/Site Forms/LoginFrom'
+import { checkLogin } from '@/utils/checkAuth';
+import { redirect } from 'next/navigation';
 
 
 
 const Login = () => {
+
+    const isLogin = checkLogin();
+    isLogin && redirect("/")
+
 
     return (
         <section className='bg-gray-100 min-h-screen'>
@@ -17,7 +23,7 @@ const Login = () => {
                                     <h3 className="text-2xl font-semibold font-inter">Login Now</h3>
                                 </div>
                                 <div className="divide-y divide-gray-200">
-                                   <LoginFrom/>
+                                    <LoginFrom />
                                 </div>
                             </div>
                         </div>

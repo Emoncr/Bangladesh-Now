@@ -69,7 +69,7 @@ const newsDetails = async ({ params }) => {
                                         </div>
                                     </div>
                                     <div className='Comments mt-5 sm:mt-8'>
-                                        <Comments />
+                                        <Comments postID={data.id}/>
                                     </div>
                                 </div>
                             </div>
