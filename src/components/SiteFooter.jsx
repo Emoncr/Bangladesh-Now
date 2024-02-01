@@ -1,5 +1,7 @@
 "use client"
 import { usePathname } from 'next/navigation';
+import SubscriberFrom from './Site Forms/SubscriberFrom';
+
 const SiteFooter = () => {
   const pathName = usePathname()
   return (
@@ -21,15 +23,7 @@ const SiteFooter = () => {
                   </div>
                 </div>
                 <div className="col-span-2 lg:col-span-3 lg:flex lg:items-end">
-                  <form className="w-full">
-                    <label htmlFor="UserEmail" className="sr-only"> Email </label>
-                    <div className="border border-white  sm:flex sm:items-center sm:gap-4">
-                      <input type="email" id="UserEmail" placeholder="john@rhcp.com" className="w-full border-none focus:border-transparent p-2 bg-transparent focus:outline-none caret-white text-white sm:text-sm" />
-                      <button className="mt-1 w-full bg-brand px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-brand/90 sm:mt-0 sm:w-auto sm:shrink-0 font-inter">
-                        Subscribe Now
-                      </button>
-                    </div>
-                  </form>
+                 <SubscriberFrom/>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                   <p className="font-medium text-white">Services</p>

@@ -4,31 +4,32 @@ import { throwError } from "./utils/response";
 
 export const middleware = async (req, res, next) => {
   try {
-    console.log(req.cookies.getAll());
     const token = req.cookies.get("token");
 
-    if (!token)
-      return throwError(
-        401,
-        "Oops! It seems like you're not authorized to access this resource."
-      );
+    if (!token) return throwError(401, "Unauthorized Request");
 
     const payload = await VerifyToken(token["value"]);
 
     const requestHeader = req.headers;
     requestHeader.set("id", payload["id"]);
     requestHeader.set("email", payload["email"]);
-
     return NextResponse.next({ request: { headers: requestHeader } });
   } catch (error) {
-    const requestHeader = req.headers;
-    requestHeader.set("id", false);
-    requestHeader.set("email", false);
-
-    return NextResponse.next({ request: { headers: requestHeader } });
+    if (req.nextUrl.pathname.startsWith("/api/")) {
+      return NextResponse.json({
+        success: false,
+        message: "Unauthorized request",
+      });
+    } else {
+      return NextResponse.redirect(new URL("/login", req.url));
+    }
   }
-}; 
+};
 
 export const config = {
-  matcher: ["/api/user/profile/:path*", ],
+  matcher: [
+    "/api/user/profile/:path*",
+    "/api/comments/manage/:path*",
+    "/profile",
+  ],
 };

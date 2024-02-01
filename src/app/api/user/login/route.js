@@ -16,7 +16,6 @@ export const POST = async (req, res, next) => {
     const isValidPassword = bcrypt.compareSync(reqBody.password, user.password);
     if (!isValidPassword) return throwError(401, "Wrong credential");
 
-  
     const token = await GenarateToken(user.email, user.id);
     const expeireDureation = new Date(Date.now() + 168 * 60 * 60 * 1000);
     const cookieString = `token=${token}; expires=${expeireDureation.toUTCString()}; path=/`;

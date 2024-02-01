@@ -16,7 +16,7 @@ async function getData(type) {
 const NewsSlider = async ({newsType}) => {
     const newsData = await getData(newsType.type)
 
-console.log(newsType);
+
 
     return (
         <>

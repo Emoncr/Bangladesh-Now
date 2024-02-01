@@ -1,8 +1,16 @@
 
 import RecoverPassForm from '@/components/Site Forms/RecoverPassForm'
-import React from 'react'
+import { checkLogin } from '@/utils/checkAuth'
+import { redirect } from 'next/navigation';
+
 
 const RecoverPassword = () => {
+
+    const isLogin = checkLogin();
+    console.log(isLogin);
+    // isLogin && redirect("/")
+
+
     return (
         <section className='bg-gray-100 min-h-screen'>
             <div className="container">
@@ -16,7 +24,7 @@ const RecoverPassword = () => {
 
                                 </div>
                                 <div className="divide-y divide-gray-200">
-                                    <RecoverPassForm/>
+                                    <RecoverPassForm />
                                 </div>
                             </div>
                         </div>

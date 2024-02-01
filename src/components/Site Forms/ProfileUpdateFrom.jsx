@@ -1,36 +1,36 @@
 "use client"
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-const ProfileUpdateFrom = () => {
+const ProfileUpdateFrom = ({ userDetails }) => {
 
     const [loading, setLoading] = useState(false)
-    const [data, setData] = useState({})
-
+    const [data, setData] = useState(userDetails)
+  
     const router = useRouter()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (!data.firstName) return toast("FirstName feild empty")
-        if (!data.lastName) return toast("LastName feild is empty")
-        if (!data.mobile) return toast("Phone feild is empty")
-        if (!data.email) return toast("Email feild empty")
+        if (!data.firstName) return toast.error("FirstName feild empty")
+        if (!data.lastName) return toast.error("LastName feild is empty")
+        if (!data.mobile) return toast.error("Phone feild is empty")
+        if (!data.email) return toast.error("Email feild empty")
 
 
 
-        const options = { method: "POST", body: JSON.stringify(data) }
+        const options = { method: "POST", body: JSON.stringify(data), cache: "no-store" }
         try {
             setLoading(true)
-            const res = await (await fetch(`/api/user/create?id=${userData.id}`, options)).json();
+            const res = await (await fetch(`/api/user/profile/update`, options)).json();
             setLoading(false)
             if (res.success !== true) {
                 toast.error(res.message)
             }
             else {
-                router.push("/login")
+                toast.success("Profile updated successfully")
+                router.refresh()
             }
         } catch (error) {
 
@@ -45,6 +45,7 @@ const ProfileUpdateFrom = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center'>
                     <div className="relative">
                         <input
+                            value={data.firstName}
                             onChange={e => setData({ ...data, firstName: e.target.value })}
                             autoComplete="off"
                             id="fistName" name="fistName"
@@ -62,6 +63,7 @@ const ProfileUpdateFrom = () => {
 
                     <div className="relative">
                         <input
+                            value={data.lastName}
                             onChange={e => setData({ ...data, lastName: e.target.value })}
                             autoComplete="off"
                             id="lastName" name="lastName"
@@ -78,6 +80,7 @@ const ProfileUpdateFrom = () => {
                 </div>
                 <div className="relative">
                     <input
+                        value={data.mobile}
                         onChange={e => setData({ ...data, mobile: e.target.value })}
                         autoComplete="off"
                         id="phone" name="phone"
@@ -94,6 +97,7 @@ const ProfileUpdateFrom = () => {
 
                 <div className="relative">
                     <input
+                        value={data.email}
                         onChange={e => setData({ ...data, email: e.target.value })}
                         autoComplete="off"
                         id="email"
@@ -117,9 +121,7 @@ const ProfileUpdateFrom = () => {
                         }
                     </button>
                 </div>
-                <div className="relative mt-5 ">
-                    <p className="font-inter font-medium  text-center transition ">Already have account? <Link href={"/login"} className='hover:text-brand hover:underline underline ' >Login</Link> </p>
-                </div>
+
             </div>
         </form>
     )

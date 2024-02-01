@@ -24,7 +24,7 @@ const LoginFrom = () => {
                 toast.error(res.message)
             }
             else {
-   
+                toast.success('Login success!')
                 window.location.href = '/';
             }
         } catch (error) {

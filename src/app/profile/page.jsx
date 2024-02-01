@@ -1,11 +1,36 @@
 import PlainLayout from '@/components/PlainLayout'
 import ProfileUpdateFrom from '@/components/Site Forms/ProfileUpdateFrom'
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+
+
+async function getData(cookies) {
+    try {
+
+        const res = await fetch(`${process.env.BASE_URL}/api/user/profile`,
+            {
+                method: "GET",
+                headers: { cookie: cookies },
+                cache: "no-store"
+            }
+        );
+        const data = await res.json()
+        if (!data.success) {
+            redirect("/")
+        }
+        return data.user
+
+    } catch (error) {
+        redirect("/")
+    }
+}
 
 
 
 const Porfile = async () => {
-
-
+    
+    const cookieStore = cookies();
+    const userDetails = await getData(cookieStore);
 
     return (
         <PlainLayout>
@@ -19,7 +44,7 @@ const Porfile = async () => {
                                         <img className="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800  my-4" src="https://randomuser.me/api/portraits/women/21.jpg" alt="user profile" />
                                     </div>
                                     <div className="py-2">
-                                        <ProfileUpdateFrom />
+                                        <ProfileUpdateFrom userDetails={userDetails} />
                                     </div>
                                 </div>
                             </div>
