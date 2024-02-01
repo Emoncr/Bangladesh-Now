@@ -24,7 +24,7 @@ const TopBanner = async () => {
     return (
         <>
             <TopHeader></TopHeader>
-            <section className='py-5 pb-0 bg-white shadow-brandShadow'>
+            <section className='py-5 pb-0 bg-white shadow-brandShadow border-b-2 border-b-gray-200'>
                 <div className="container grid grid-cols-12 items-center">
                     <div className="logo col-span-4">
                         <Link href={"/"}>
