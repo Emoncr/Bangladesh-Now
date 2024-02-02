@@ -13,7 +13,7 @@ const VerifyEmail = ({ propsInfo }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (!data.email) return toast("Email feild empty")
+        if (!data.email) return toast.error("Email feild empty")
 
         const options = { method: "POST", body: JSON.stringify(data) }
         try {

@@ -17,7 +17,7 @@ module.exports = {
         offWhite_bg:"#f6f6f6"
       },
       boxShadow: {
-        "brandShadow": "0 0 15px rgba(0, 0, 0, .15)",
+        "brandShadow": "0 0 15px rgba(0, 0, 0, .30)",
       },
     },
   },
