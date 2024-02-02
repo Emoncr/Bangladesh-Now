@@ -10,8 +10,8 @@ export async function GET(req, res) {
     const prisma = new PrismaClient();
     const result = await prisma.news_list.findMany({
       where: {
-        title: { contains: keyword, mode: "insensitive" },
-        short_des: { contains: keyword, mode: "insensitive" },
+        title: { contains: keyword},
+        short_des: { contains: keyword,  },
       },
       include: { Categories: true },
       take: 10,
