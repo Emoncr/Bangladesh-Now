@@ -33,7 +33,7 @@ const HeroSilder = ({newsData}) => {
         infinite: true,
         lazyLoad: false,
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
@@ -43,7 +43,7 @@ const HeroSilder = ({newsData}) => {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                 }
             },
             {
@@ -53,7 +53,7 @@ const HeroSilder = ({newsData}) => {
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 719,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -88,11 +88,13 @@ const HeroSilder = ({newsData}) => {
 
                                     <div className='absolute w-full pb-5 px-4 bottom-0 z-10'>
                                         <div className='flex items-center justify-start'>
-                                            <p className=' bg-brand text-white font-inter text-sm font-bold px-3 rounded-md py-2 capitalize'>{el.type}</p>
+                                            <p className=' bg-brand text-white font-inter font-bold px-2 py-1 sm:px-3 rounded-md sm:py-2 capitalize text-xs sm:text-sm'>{el.type}</p>
                                         </div>
 
-                                        <h2 className='text-white font-bold font-inter text-lg line-clamp-2 mt-2 transition group-hover:text-brand group-hover:underline'>{el.title}</h2>
-                                        <p className='text-xs text-white mt-2 font-inter font-semibold flex items-center justify-start gap-1'> <FaClock /> {new Date(el.createdAt).toLocaleDateString()}</p>
+                                        <h2 className='text-white font-bold font-inter line-clamp-2 sm:line-clamp-1 md:line-clamp-2 lg:line-clamp-1 xl:line-clamp-2 mt-2 transition group-hover:text-brand group-hover:underline text-sm sm:text-lg  lg:text-lg 2xl:text-xl'>{el.title}</h2>
+
+
+                                        <p className='hidden  text-white mt-2 font-inter font-semibold md:flex lg:hidden xl:flex items-center justify-start gap-1 text-sm'> <FaClock /> {new Date(el.createdAt).toLocaleDateString()}</p>
                                     </div>
                                     <div className="absolute top-0 bottom-0 left-0 right-0 bg-black/40">
                                     </div>
