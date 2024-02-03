@@ -34,14 +34,14 @@ const UserDropdown = () => {
                     <Link className="p-1 px-3 rounded-md transition w-full text-heading_color hover:bg-gray-200 block" href={"/profile"}>Profile</Link>
                 </li>
                 <li className="w-full">
-                    <Link className="p-1 px-3 rounded-md transition w-full text-heading_color hover:bg-gray-200 block" href={"/profile"}>My Comments</Link>
+                    <Link className="p-1 px-3 rounded-md transition w-full text-heading_color hover:bg-gray-200 block" href={"/my_comments"}>My Comments</Link>
                 </li>
                 <li className="mt-1">
                     <buton
                         disable={loading}
                         onClick={handleLogout}
                         className="p-1 px-3 rounded-md transition w-full text-heading_color hover:bg-gray-200 block cursor-pointer" href={"/profile"}>
-                  
+
                         {
                             loading ? "Loging out.." : "Logout"
                         }

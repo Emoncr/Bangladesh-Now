@@ -1,14 +1,17 @@
-import Comments from '@/components/Comments';
-import PlainLayout from '@/components/PlainLayout'
-import SearchForm from '@/components/SearchForm';
-import SideNews from '@/components/SideNews';
 
+import Comments from '@/components/Comment Components/Comments';
+import PlainLayout from '@/components/PlainLayout'
+import SideNews from '@/components/SideNews';
+import SearchForm from '@/components/Site Forms/SearchForm';
+import { FaCommentAlt } from "react-icons/fa";
 
 async function getData(id) {
     try {
-        const requestData = await fetch(`${process.env.BASE_URL}/api/news_list/details?id=${id}`);
+        const requestData = await fetch(`${process.env.BASE_URL}/api/news_list/details?id=${id}`,{
+            cache:"no-store"
+        });
         const res = await requestData.json()
-        
+
         if (!res.success) {
             throw new Error("News details data fetch failed!")
         }
@@ -30,7 +33,7 @@ const newsDetails = async ({ params }) => {
     }
 
     const tags = generateTags(data?.keywords);
-
+    
 
     return (
         <PlainLayout>
@@ -45,7 +48,9 @@ const newsDetails = async ({ params }) => {
                                 </h4>
                                 <div className='flex items-center justify-start gap-5 sm:gap-8 sm:mt-5 lg:mt-8 mt-3'>
                                     <p className='text-[#999] text-[10px] sm:text-sm font-inter font-semibold '>Published: {new Date(data?.createdAt).toLocaleDateString()} </p>
-                                    <p className='text-[#999] text-[10px] sm:text-sm font-inter font-semibold'>Comments: </p>
+                                    <p className='text-[#999] text-[10px] sm:text-sm font-inter font-semibold'>
+                                        <span className='flex items-center justify-start gap-1'><FaCommentAlt />{data?.commnets.length}</span>
+                                    </p>
                                 </div>
                             </div>
                             <div className='lg:py-6 py-3'>
@@ -69,7 +74,7 @@ const newsDetails = async ({ params }) => {
                                         </div>
                                     </div>
                                     <div className='Comments mt-5 sm:mt-8'>
-                                        <Comments postID={data.id}/>
+                                        <Comments postID={data.id} />
                                     </div>
                                 </div>
                             </div>

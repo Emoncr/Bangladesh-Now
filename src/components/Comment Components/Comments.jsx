@@ -1,7 +1,9 @@
-import CommentForm from './Site Forms/CommentForm'
+
+import CommentForm from '../Site Forms/CommentForm'
 import CommentList from './CommentList'
 
-const Comments = ({postID}) => {
+
+const Comments = ({ postID }) => {
 
     return (
         <div>
@@ -12,7 +14,7 @@ const Comments = ({postID}) => {
                 <div className='h-[2px] w-full bg-gray-300 rounded-sm'>
                 </div>
             </div>
-            <CommentForm postID={postID}/>
+            <CommentForm postID={postID} />
             <CommentList postID={postID} />
         </div>
     )

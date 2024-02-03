@@ -9,7 +9,7 @@ export async function GET(req, res) {
     const prisma = new PrismaClient();
     const result = await prisma.news_list.findUnique({
       where: { id: id },
-      include: { Categories: true },
+      include: { Categories: {select:{id:true,name:true}}, commnets: {select:{id:true}} },
     });
     return NextResponse.json({ success: true, data: result });
   } catch (error) {

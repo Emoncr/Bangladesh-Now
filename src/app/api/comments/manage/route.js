@@ -11,8 +11,11 @@ export async function GET(req, res) {
     const result = await prisma.comments.findMany({
       where: { userID: id },
       include: {
-        News_list: { select: { title: true } },
+        News_list: {
+          include: { Categories: {select:{name:true}} },
+        },
       },
+      orderBy:{id:"desc"}
     });
 
     return NextResponse.json({ success: true, data: result });
@@ -23,8 +26,8 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
   try {
-    let headerList = headers(); 
-// console.log(headerList);
+    let headerList = headers();
+    // console.log(headerList);
     let id = parseInt(headerList.get("id"));
 
     let reqBody = await req.json();
@@ -33,25 +36,6 @@ export async function POST(req, res) {
     const prisma = new PrismaClient();
     const result = await prisma.comments.create({
       data: reqBody,
-    });
-    return NextResponse.json({ success: true, data: result });
-  } catch (e) {
-    return NextResponse.json({ success: false, data: e.toString() });
-  }
-}
-
-export async function DELETE(req, res) {
-  try {
-    let headerList = headers();
-    let user_id = parseInt(headerList.get("id"));
-
-    let reqBody = await req.json();
-
-    const prisma = new PrismaClient();
-    const result = await prisma.comments.deleteMany({
-      where: {
-        AND: [{ userID: user_id }, { id: parseInt(reqBody["id"]) }],
-      },
     });
     return NextResponse.json({ success: true, data: result });
   } catch (e) {

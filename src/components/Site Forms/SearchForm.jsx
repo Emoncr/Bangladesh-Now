@@ -1,9 +1,8 @@
 "use client"
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { FaSearch } from "react-icons/fa";
-import ShortNews from "./ShortNews";
-import LoadingSpiner from "./LoadingSpiner";
+import LoadingSpiner from "../LoadingSpiner";
+import ShortNews from "../ShortNews";
 
 
 
