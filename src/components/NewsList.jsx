@@ -1,7 +1,7 @@
 
-import SearchForm from './SearchForm'
 import News from './News'
 import SideNews from './SideNews'
+import SearchForm from './Site Forms/SearchForm';
 
 
 
@@ -12,7 +12,7 @@ async function getData(news) {
         );
         const data = await res.json()
         if (!data.success) {
-            throw new Error("Newslist Fetch failed!" ,data)
+            throw new Error("Newslist Fetch failed!", data)
         }
         return data
 
