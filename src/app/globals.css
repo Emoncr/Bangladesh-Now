@@ -26,4 +26,11 @@
   gap: 24px !important;
 }
 
+@media only screen and (max-width: 720) {
+  .slider_cotnainer .slick-list > div {
+    display: flex !important;
+    gap: 0px !important;
+  }
+}
+
 @tailwind utilities;

@@ -27,7 +27,6 @@ const SearchForm = () => {
         try {
             setLoading(true)
             const res = await (await fetch(`/api/news_list/search?keyword=${e.target.value}`, { cache: "no-cache" })).json();
-            console.log(res);
             if (res.success !== true) {
                 setLoading(false)
             }
