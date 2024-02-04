@@ -6,7 +6,7 @@ export const middleware = async (req, res, next) => {
   try {
     const token = req.cookies.get("token");
 
-    if (!token) return throwError(401, "Unauthorized Request");
+    if (!token)  return NextResponse.redirect(new URL("/login", req.url)); 
 
     const payload = await VerifyToken(token["value"]);
 
@@ -31,5 +31,6 @@ export const config = {
     "/api/user/profile/:path*",
     "/api/comments/manage/:path*",
     "/profile",
+    "/comments",
   ],
 };
