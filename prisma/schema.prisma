@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -43,7 +43,7 @@ model News_list {
   img3      String
   img4      String
   keywords  String
-  long_des  String @db.LongText
+  long_des  String
   type      String
 
   commnets Comments[]
@@ -93,6 +93,6 @@ model Subscribers {
 
 model Policy {
   id       Int    @id @default(autoincrement())
-  long_des String @db.LongText
+  long_des String 
   type     String @db.VarChar(50)
 }

@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const LoginFrom = () => {
@@ -11,8 +11,8 @@ const LoginFrom = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (!data.email) return toast("Email feild empty")
-        if (!data.password) return toast("Password feild is empty")
+        if (!data.email) return toast.error("Email feild empty")
+        if (!data.password) return toast.error("Password feild is empty")
 
 
         const options = { method: "POST", body: JSON.stringify(data) }
@@ -35,6 +35,7 @@ const LoginFrom = () => {
 
 
     return (
+     <>
         <form onSubmit={e => handleSubmit(e)}>
             <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <div className="relative">
@@ -46,7 +47,7 @@ const LoginFrom = () => {
                         type="email"
                         className="peer placeholder-transparent h-[52px] w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-brand font-semibold"
                         placeholder="Email address"
-                        required
+                        // required
                     />
 
                     <label htmlFor="email" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm font-inter font-semibold mt-2">Email Address</label>
@@ -60,7 +61,7 @@ const LoginFrom = () => {
                         type="password"
                         className="peer placeholder-transparent h-[52px] w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-brand font-semibold "
                         placeholder="Password"
-                        required
+                        // required
                     />
 
                     <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm font-inter font-semibold mt-2">Password</label>
@@ -80,6 +81,8 @@ const LoginFrom = () => {
                 </div>
             </div>
         </form>
+        <Toaster/>
+     </>
     )
 }
 
