@@ -19,3 +19,4 @@ export const VerifyToken = async (token) => {
   const decodedToken = await jwtVerify(token, secret);
   return decodedToken["payload"];
 };
+ 

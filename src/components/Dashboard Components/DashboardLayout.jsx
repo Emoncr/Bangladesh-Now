@@ -1,7 +1,6 @@
+import React from 'react'
 
-
-const Dashboard = () => {
-
+const DashboardLayout = () => {
     return (
         <section className='min-h-screen h-full'>
             <div className="grid grid-cols-12 ">
@@ -21,4 +20,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default DashboardLayout

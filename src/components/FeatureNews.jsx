@@ -5,8 +5,7 @@ import NewsSlider from "./NewsSlider";
 
 async function getData() {
   try {
-    let data = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`)).json())["data"];
-
+    let data = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`,{cache:"no-store"})).json())["data"];
 
     return data
   } catch (error) {
@@ -16,7 +15,7 @@ async function getData() {
 
 const FeatureNews = async () => {
   const newsData = await getData()
-
+  
 
 
 

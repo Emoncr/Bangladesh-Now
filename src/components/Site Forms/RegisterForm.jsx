@@ -23,7 +23,6 @@ const RegisterForm = () => {
         try {
             setLoading(true)
             const res = await (await fetch("/api/user/create", options)).json();
-            console.log(res);
             setLoading(false)
             if (res.success !== true) {
                 toast.error(res.message)
