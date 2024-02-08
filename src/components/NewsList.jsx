@@ -55,7 +55,7 @@ const NewsList = async ({ news }) => {
                             <SearchForm />
                         </div>
                         <div className="treanding_container md:mt-5">
-                            <SideNews news={{ params: "category", value: "catID=8", heading: "Entertainment" }} />
+                            <SideNews news={{ params: "category", value: "catID=5", heading: "Entertainment" }} />
                         </div>
                     </div>
                 </div>

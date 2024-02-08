@@ -58,7 +58,7 @@ const SearchForm = () => {
                         placeholder="Search news"
                         className="border-2 border-[#ccc] focus:border-brand focus:outline-none px-2 py-2 w-full col-span-10 rounded-s-lg text-heading_color"
                     />
-                    <button type="submit" className=" col-span-2 flex items-center justify-center bg-brand text-white rounded-e-lg">
+                    <button disabled type="submit" className=" col-span-2 flex items-center justify-center bg-brand text-white rounded-e-lg">
                         <FaSearch />
                     </button>
                 </div>

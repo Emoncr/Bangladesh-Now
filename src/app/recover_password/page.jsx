@@ -7,7 +7,6 @@ import { redirect } from 'next/navigation';
 const RecoverPassword = () => {
 
     const isLogin = checkLogin();
-    console.log(isLogin);
     // isLogin && redirect("/")
 
 

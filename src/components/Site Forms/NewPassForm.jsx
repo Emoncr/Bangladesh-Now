@@ -29,7 +29,6 @@ const NewPassForm = ({ propsInfo }) => {
             setLoading(true)
             const res = await (await fetch("/api/passwordRecover/updatePassword", options)).json();
             setLoading(false)
-            console.log(res);
             if (res.success != true) {
                 toast.error('Failed to save new password, Try Again!')
             }

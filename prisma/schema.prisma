@@ -10,17 +10,23 @@ datasource db {
 model Users {
   id Int @id @default(autoincrement())
 
-  firstName String @db.VarChar(50)
-  lastName  String @db.VarChar(50)
-  email     String @unique @db.VarChar(50)
-  mobile    String @db.VarChar(20)
+  firstName String     @db.VarChar(50)
+  lastName  String     @db.VarChar(50)
+  email     String     @unique @db.VarChar(50)
+  mobile    String     @db.VarChar(20)
   password  String
-  otp       String @default("000000")
-
-  comments Comments[]
+  otp       String     @default("000000")
+  role      Role       @default(USER)
+  comments  Comments[]
 
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp()
+}
+
+enum Role {
+  USER
+  EDITOR
+  ADMIN
 }
 
 model Categories {
@@ -93,6 +99,6 @@ model Subscribers {
 
 model Policy {
   id       Int    @id @default(autoincrement())
-  long_des String 
+  long_des String
   type     String @db.VarChar(50)
 }
