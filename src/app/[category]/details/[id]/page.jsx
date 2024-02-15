@@ -14,13 +14,11 @@ async function getData(id) {
         const res = await requestData.json()
 
         if (!res.success) {
-            // throw new Error("News details data fetch failed!")
-            console.log(res);
+            throw new Error("News details data fetch failed!")
         }
         return res.data
     } catch (error) {
-        console.log("News details Error",error);
-        // throw new Error("News details data fetch failed!")
+        throw new Error("News details data fetch failed!")
     }
 }
 

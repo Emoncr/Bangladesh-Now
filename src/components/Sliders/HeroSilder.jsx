@@ -77,7 +77,7 @@ const HeroSilder = ({newsData}) => {
 
 
     return (
-        <div className='slider_cotnainer slider_custom_dot'>
+        <div className='slider_container slider_custom_dot'>
             <Slider className=' mx-auto sm:max-w-full' {...settings}>
                 {
                     newsData?.length !== 0 && newsData?.map((el, index) =>

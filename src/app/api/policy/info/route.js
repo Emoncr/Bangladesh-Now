@@ -6,7 +6,6 @@ export const GET = async (req, res, next) => {
     const { searchParams } = new URL(req.url);
     const type = searchParams.get("type");
 
-    console.log(type);
     const prisma = new PrismaClient();
 
     const result = await prisma.Policy.findMany({

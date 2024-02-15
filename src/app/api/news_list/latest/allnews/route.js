@@ -2,7 +2,6 @@ import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
-  console.log(process.env.DATABASE_URL);
   try {
     const prisma = new PrismaClient();
     const result = await prisma.news_list.findMany({
