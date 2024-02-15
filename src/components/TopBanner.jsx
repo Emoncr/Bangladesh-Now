@@ -15,7 +15,7 @@ async function getData() {
         return data.categories
 
     } catch (error) {
-        console.log(error);
+   
         throw new Error("Navlist Fetch failed!")
     }
 }

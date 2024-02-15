@@ -27,7 +27,6 @@ export async function GET(req, res) {
 export async function POST(req, res) {
   try {
     let headerList = headers();
-    // console.log(headerList);
     let id = parseInt(headerList.get("id"));
 
     let reqBody = await req.json();

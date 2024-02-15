@@ -5,7 +5,7 @@ export const DELETE = async (req, res, next) => {
   try {
     const { searchParams } = new URL(req.url);
     const commentID = parseInt(searchParams.get("id"));
-    console.log(commentID);
+
     const prisma = new PrismaClient();
     const res = await prisma.Comments.delete({
       where: { id: commentID },
