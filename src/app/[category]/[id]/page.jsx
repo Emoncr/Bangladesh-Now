@@ -11,7 +11,7 @@ const CategoryNews = ({ params }) => {
             <div className='py-10 bg-offWhite_bg large_container'>
                 <NewsSlider newsType={{type:"popular",}}/>
             </div>
-
+ 
 
             <NewsList
                 news={{ endpoint: "category", params: `?catID=${params.id}`, heading: `${params.category}` }}

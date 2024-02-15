@@ -21,16 +21,15 @@
 }
 /* //========Slider section css ==========// */
 
-.slider_cotnainer .slick-list > div {
-  display: flex !important;
-  gap: 24px !important;
+.slider_container .slick-list > div {
+  display: flex;
+  gap: 24px;
 }
 
-@media only screen and (max-width: 720) {
-  .slider_cotnainer .slick-list > div {
+@media screen and (max-width: 720px) {
+  .slider_container .slick-list > div {
     display: flex !important;
     gap: 0px !important;
   }
 }
-
 @tailwind utilities;

@@ -26,7 +26,7 @@ const NavMobile = ({ navItems }) => {
             {
                <div className={`absolute -top-5 right-0  ${isMenuActive ? "w-full" : "w-0"}  bg-white shadow-md z-50 h-screen transition-all duration-500 delay-200`}>
 
-                    <div className='py-5 px-5 '>
+                    <div className={`py-5 px-5 ${isMenuActive ? "block" : "hidden"} `}>
                         <div className="close_btn ">
                             <button
                                 onClick={() => setIsMenuActive(false)}

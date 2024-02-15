@@ -43,8 +43,6 @@ const TopBanner = async () => {
                         <div className='w-full md:hidden'>
                             <NavMobile navItems={navItems} />
                         </div>
-
-
                     </div>
                 </div>
                 <div className='md:mt-10 mt-0'>
