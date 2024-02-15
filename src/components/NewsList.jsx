@@ -6,6 +6,7 @@ import SearchForm from './Site Forms/SearchForm';
 
 
 async function getData(news) {
+
     try {
         const res = await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`,
             { cache: "no-store" }
@@ -17,16 +18,19 @@ async function getData(news) {
         return data
 
     } catch (error) {
+        console.log("newslist error happen", error);
         throw new Error("Newslist Fetch failed!", error)
     }
 }
 
 
 const NewsList = async ({ news }) => {
+
     const allNews = await getData(news);
     const { data } = allNews;
-
+ 
     return (
+
         <section className='py-10 sm:py-12 bg-white'>
             <div className="container">
                 <div className="newsListNav  grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-x-12 w-full">

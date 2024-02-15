@@ -1,3 +1,4 @@
+
 import FeatureNews from '@/components/FeatureNews'
 import NewsList from '@/components/NewsList'
 import PlainLayout from '@/components/PlainLayout'
@@ -14,5 +15,7 @@ export default function Home() {
       </PlainLayout>
 
     </>
-  )
+  ) 
 }
+
+

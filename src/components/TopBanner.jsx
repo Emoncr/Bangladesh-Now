@@ -15,6 +15,7 @@ async function getData() {
         return data.categories
 
     } catch (error) {
+        console.log(error);
         throw new Error("Navlist Fetch failed!")
     }
 }
@@ -42,8 +43,6 @@ const TopBanner = async () => {
                         <div className='w-full md:hidden'>
                             <NavMobile navItems={navItems} />
                         </div>
-
-
                     </div>
                 </div>
                 <div className='md:mt-10 mt-0'>
