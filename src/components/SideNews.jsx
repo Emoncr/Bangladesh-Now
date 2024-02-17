@@ -19,11 +19,11 @@ const SideNews = async ({ news }) => {
                 <h5 className='text-brand text-lg font-inter font-bold'>{heading && heading}</h5>
             </div>
             <div className='mt-4 grid sm:grid-cols-2 md:grid-cols-1 gap-3'>
-                {
+                {/* {
                     entertainment?.length !== 0 && entertainment?.map((info, index) =>
                         <ShortNews info={info} key={index} />
                     )
-                }
+                } */}
             </div>
         </div>
     )
