@@ -6,7 +6,7 @@ const News = ({ newsInfo }) => {
         <Link href={`/${newsInfo.Categories?.name}/details/${newsInfo.id}`}>
             <div className='grid grid-cols-1 gap-3 group'>
                 <div className="image-container">
-                    <img src={newsInfo.img1} alt="News image" />
+                    <img className='h-[208px] sm:h-[208px] min-[490px]:h-[300px] lg:h-[150px] 2xl:h-[208px] w-full object-fill' src={newsInfo.img1} alt="News image" />
                 </div>
                 <div className='news_content'>
                     <h4 className='text-base sm:text-lg lg:text-xl font-bold line-clamp-1 sm:line-clamp-2 font-inter leading-tight group-hover:text-brand group-hover:underline transition'>{newsInfo.title}</h4>
