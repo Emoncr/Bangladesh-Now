@@ -5,19 +5,17 @@ import SearchForm from './Site Forms/SearchForm';
 
 
 
-async function getData(news) {
-    try {
-        const res = await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`,
-            { cache: "no-store" }
-        );
-        const data = await res.json()
 
-        return data
 
-    } catch (error) {
-        throw new Error("Newslist Fetch failed!", error)
+const getData = async (news) => {
+    const res = await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`)
+    if (!res.ok) {
+      throw new Error("NewsList API Calling Falied!")
     }
-} 
+    return res.json()
+  }
+
+
 
 
 const NewsList = async ({ news }) => {

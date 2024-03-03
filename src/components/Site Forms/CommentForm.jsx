@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-const CommentForm = ({ postID }) => {
+const CommentForm = ({ comentInfo }) => {
+    const { postID, isLogin } = comentInfo;
     const [loading, setLoading] = useState(false)
 
     const [data, setData] = useState({
@@ -14,11 +15,18 @@ const CommentForm = ({ postID }) => {
     })
     const router = useRouter()
 
+
+
+
+
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (!data.commentText) return toast.error("Commnet feild empty")
+        if (!isLogin) return toast.error("You need to Login first")
         const { emptyValue, ...rest } = data;
         setData({ ...data, emptyValue: "" })
+
         const options = { method: "POST", body: JSON.stringify(rest) }
         try {
             setLoading(true)
@@ -26,7 +34,7 @@ const CommentForm = ({ postID }) => {
             setLoading(false)
 
             if (res.success !== true) {
-                toast.error('Commen!')
+                toast.error('e')
             }
             else {
                 toast.success('Comment added')

@@ -1,10 +1,11 @@
 
+import { checkLogin } from '@/utils/checkAuth';
 import CommentForm from '../Site Forms/CommentForm'
 import CommentList from './CommentList'
 
 
 const Comments = ({ postID }) => {
-
+    const isLogin = checkLogin();
     return (
         <div>
             <div className='flex items-center justify-start gap-2 '>
@@ -14,7 +15,7 @@ const Comments = ({ postID }) => {
                 <div className='h-[2px] w-full bg-gray-300 rounded-sm'>
                 </div>
             </div>
-            <CommentForm postID={postID} />
+            <CommentForm comentInfo={{ postID, isLogin }} />
             <CommentList postID={postID} />
         </div>
     )
