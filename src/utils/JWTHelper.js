@@ -8,6 +8,7 @@ export const GenarateToken = async (email, id) => {
     .setProtectedHeader({ alg: "HS256" })
     .setExpirationTime(process.env.JWT_EXPIRES_IN)
     .setIssuedAt()
+    .setIssuer(process.env.JWT_ISSUER)
     .setSubject(payload)
     .sign(secret);
 
@@ -19,4 +20,3 @@ export const VerifyToken = async (token) => {
   const decodedToken = await jwtVerify(token, secret);
   return decodedToken["payload"];
 };
- 

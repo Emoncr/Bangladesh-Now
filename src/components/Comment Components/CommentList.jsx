@@ -13,7 +13,7 @@ async function getData(id) {
         return data.data
 
     } catch (error) {
-        throw new Error("Newslist Fetch failed!", error)
+        throw new Error("Comment Fetch failed!", error)
     }
 }
 
