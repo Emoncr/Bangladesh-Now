@@ -17,8 +17,8 @@ async function getData(type) {
 
 
 const NewsSlider = async ({ newsType }) => {
-    console.log(newsType);
-    // const params = newsType?.type ? newsType.type : "popular"
+
+
 
     const newsData = await getData(newsType.type)
     

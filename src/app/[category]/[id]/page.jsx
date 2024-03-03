@@ -5,7 +5,7 @@ import PlainLayout from '@/components/PlainLayout'
 import React from 'react'
 
 const CategoryNews = ({ params }) => {
-    console.log(params);
+
     return (
         <PlainLayout>
 
