@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 
 import News from './News'
 import SideNews from './SideNews'
@@ -17,15 +18,17 @@ async function getData(news) {
     } catch (error) {
         throw new Error("Newslist Fetch failed!", error)
     }
-} 
+}
+
+
 
 
 const NewsList = async ({ news }) => {
-    
+    console.log(news);
     const allNews = await getData(news);
     const { data } = allNews;
- 
-    return (         
+
+    return (
 
         <section className='py-10 sm:py-12 bg-white'>
             <div className="container">
@@ -56,7 +59,7 @@ const NewsList = async ({ news }) => {
                         </div>
                         <div className="treanding_container md:mt-5">
                             <SideNews news={{ params: "category", value: "catID=5", heading: "Entertainment" }} />
-                    
+
                         </div>
                     </div>
                 </div>

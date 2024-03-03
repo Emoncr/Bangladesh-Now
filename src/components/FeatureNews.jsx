@@ -17,7 +17,7 @@ const FeatureNews = async () => {
   const res = await getData()
   const newsData = res.data;
 
-// console.log(newsData);
+
 
   return (
     <section className='py-12 bg-offWhite_bg'>

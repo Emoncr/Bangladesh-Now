@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 
 import HeroSilder from './Sliders/HeroSilder';
 
@@ -8,16 +9,19 @@ async function getData(type) {
 
         return data
     } catch (error) {
-        throw new Error("Slider news data fetch failed")
+        throw new Error("News Carosel Data fetch failed")
     }
 }
 
 
-const NewsSlider = async ({ newsType }) => {
-    const params = newsType?.type ? newsType.type : "popular"
-    console.log(params);
-    const newsData = await getData(params)
 
+
+const NewsSlider = async ({ newsType }) => {
+    console.log(newsType);
+    // const params = newsType?.type ? newsType.type : "popular"
+
+    const newsData = await getData(newsType.type)
+    
 
 
     return (

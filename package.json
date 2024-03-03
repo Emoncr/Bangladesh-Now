@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production next start",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^5.7.1",
+    "@prisma/client": "^5.10.2",
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.41.3",
     "dotenv": "^16.4.2",

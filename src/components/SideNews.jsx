@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import ShortNews from './ShortNews'
 
 async function getData(newsTypeObj) {
@@ -9,14 +11,14 @@ async function getData(newsTypeObj) {
 
 
 const SideNews = async ({ news }) => {
-    const params = {
-        ...news,
-        params: news.params ? news.params : "category",
-        value: news.value ? news.value : "catID=5",
-        heading: "Entertainment",
-    }
-    const newsData = await getData(params);
-    const { heading } = params;
+    // const params = {
+    //     ...news,
+    //     params: news.params ? news.params : "category",
+    //     value: news.value ? news.value : "catID=5",
+    //     heading: news.heading ? news.heading : "Entertainment",
+    // }
+    const newsData = await getData(news);
+    const { heading } = news;
 
 
 
