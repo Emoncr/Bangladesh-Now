@@ -13,15 +13,17 @@ async function getData(type) {
 }
 
 
-const NewsSlider = async ({newsType}) => {
-    const newsData = await getData(newsType.type)
+const NewsSlider = async ({ newsType }) => {
+    const params = newsType?.type ? newsType.type : "popular"
+    console.log(params);
+    const newsData = await getData(params)
 
 
 
     return (
         <>
 
-                <HeroSilder newsData={newsData} />
+            <HeroSilder newsData={newsData} />
 
         </>
     )

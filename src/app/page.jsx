@@ -13,9 +13,8 @@ export default function Home() {
         <FeatureNews />
         <NewsList news={{ endpoint: "latest", params:"/allnews",   heading: "Latest" }}/>
       </PlainLayout>
-
     </>
   ) 
 }
 
-
+ 

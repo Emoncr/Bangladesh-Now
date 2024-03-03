@@ -10,26 +10,22 @@ async function getData(news) {
         const res = await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`,
             { cache: "no-store" }
         );
-
-        
         const data = await res.json()
-        if (!data.success) {
-            throw new Error("Newslist Fetch failed!", data)
-        }
+
         return data
 
     } catch (error) {
         throw new Error("Newslist Fetch failed!", error)
     }
-}
+} 
 
 
 const NewsList = async ({ news }) => {
-
+    
     const allNews = await getData(news);
     const { data } = allNews;
  
-    return (
+    return (         
 
         <section className='py-10 sm:py-12 bg-white'>
             <div className="container">
@@ -60,6 +56,7 @@ const NewsList = async ({ news }) => {
                         </div>
                         <div className="treanding_container md:mt-5">
                             <SideNews news={{ params: "category", value: "catID=5", heading: "Entertainment" }} />
+                    
                         </div>
                     </div>
                 </div>

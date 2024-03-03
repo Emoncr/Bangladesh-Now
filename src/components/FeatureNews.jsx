@@ -3,21 +3,21 @@ import { FaClock } from "react-icons/fa";
 import NewsSlider from "./NewsSlider";
 
 
-async function getData() {
-  try {
-    let data = (await (await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`,{cache:"no-store"})).json())["data"];
 
-    return data
-  } catch (error) {
-    throw new Error("feature and popular news data fetch failed")
+const getData = async () => {
+  const res = await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`)
+  if (!res.ok) {
+    throw new Error("Feature News API Calling Falied!")
   }
+  return res.json()
 }
 
+
 const FeatureNews = async () => {
-  const newsData = await getData()
-  
+  const res = await getData()
+  const newsData = res.data;
 
-
+// console.log(newsData);
 
   return (
     <section className='py-12 bg-offWhite_bg'>

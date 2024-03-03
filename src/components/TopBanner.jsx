@@ -3,6 +3,7 @@ import TopHeader from './TopHeader'
 import Link from 'next/link'
 import SIteNavbar from './SIteNavbar'
 import NavMobile from './NavMobile';
+import NavHomeLink from './NavHomeLink';
 
 
 async function getData() {
@@ -49,6 +50,7 @@ const TopBanner = async () => {
                     <div className="container md:flex items-center justify-center hidden">
                         <nav>
                             <ul className='flex items-center justify-center gap-6 lg:gap-10  p-2'>
+                                <NavHomeLink/>
                                 {
                                     navItems?.length !== 0 && navItems?.map(item =>
                                         <SIteNavbar key={item.id} item={item} />

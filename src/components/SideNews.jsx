@@ -3,14 +3,22 @@ import ShortNews from './ShortNews'
 async function getData(newsTypeObj) {
     const { params, value, } = newsTypeObj;
 
-    let entertainment = (await (await fetch(`${process.env.BASE_URL}/api/news_list/${params}?${value}`)).json())["data"];
-    return entertainment
+    let newsData = (await (await fetch(`${process.env.BASE_URL}/api/news_list/${params}?${value}`)).json())["data"];
+    return newsData
 }
 
 
 const SideNews = async ({ news }) => {
-    const entertainment = await getData(news);
-    const { heading } = news;
+    const params = {
+        ...news,
+        params: news.params ? news.params : "category",
+        value: news.value ? news.value : "catID=5",
+        heading: "Entertainment",
+    }
+    const newsData = await getData(params);
+    const { heading } = params;
+
+
 
     return (
         <div>
@@ -19,7 +27,7 @@ const SideNews = async ({ news }) => {
             </div>
             <div className='mt-4 grid sm:grid-cols-2 md:grid-cols-1 gap-3'>
                 {
-                    entertainment?.length !== 0 && entertainment?.map((info, index) =>
+                    newsData?.length !== 0 && newsData?.map((info, index) =>
                         <ShortNews info={info} key={index} />
                     )
                 }
