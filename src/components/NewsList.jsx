@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 
 import News from './News'
 import SideNews from './SideNews'
@@ -5,25 +6,29 @@ import SearchForm from './Site Forms/SearchForm';
 
 
 
+async function getData(news) {
+    try {
+        const res = await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`,
+            { cache: "no-store" }
+        );
+        const data = await res.json()
 
+        return data
 
-const getData = async (news) => {
-    const res = await fetch(`${process.env.BASE_URL}/api/news_list/${news.endpoint}${news.params}`)
-    if (!res.ok) {
-      throw new Error("NewsList API Calling Falied!")
+    } catch (error) {
+        throw new Error("Newslist Fetch failed!", error)
     }
-    return res.json()
-  }
+}
 
 
 
 
 const NewsList = async ({ news }) => {
-    
+    console.log(news);
     const allNews = await getData(news);
     const { data } = allNews;
- 
-    return (         
+
+    return (
 
         <section className='py-10 sm:py-12 bg-white'>
             <div className="container">
@@ -54,7 +59,7 @@ const NewsList = async ({ news }) => {
                         </div>
                         <div className="treanding_container md:mt-5">
                             <SideNews news={{ params: "category", value: "catID=5", heading: "Entertainment" }} />
-                    
+
                         </div>
                     </div>
                 </div>

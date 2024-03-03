@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 
 import FeatureNews from '@/components/FeatureNews'
 import NewsList from '@/components/NewsList'
