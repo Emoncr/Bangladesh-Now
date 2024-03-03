@@ -24,7 +24,7 @@ async function getData(news) {
 
 
 const NewsList = async ({ news }) => {
-    console.log(news);
+
     const allNews = await getData(news);
     const { data } = allNews;
 
