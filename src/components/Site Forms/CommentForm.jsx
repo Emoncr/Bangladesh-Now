@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CommentForm = ({ comentInfo }) => {
     const { postID, isLogin } = comentInfo;
@@ -73,6 +73,7 @@ const CommentForm = ({ comentInfo }) => {
                     </form>
                 </div>
             </div>
+            <Toaster/>
         </>
     )
 }

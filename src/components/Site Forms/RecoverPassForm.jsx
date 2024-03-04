@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import VerifyEmail from './VerifyEmail';
 import VerifyOTP from './VerifyOTP';
 import NewPassForm from './NewPassForm';
+import { Toaster } from 'react-hot-toast';
 
 const RecoverPassForm = () => {
     const [email, setEmail] = useState("")
@@ -16,6 +17,7 @@ const RecoverPassForm = () => {
             {activeForm === "email" && <VerifyEmail propsInfo={{ email, setEmail,activeForm, setActiveForm }} />}
             {activeForm === "otp" && <VerifyOTP propsInfo={{ email, activeForm, setActiveForm }} />}
             {activeForm === "setNewPass" && <NewPassForm propsInfo={{ activeForm, setActiveForm, email }} />}
+            <Toaster/>
         </>
     )
 }

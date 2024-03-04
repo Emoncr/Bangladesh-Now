@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react'
 import { MdArrowForwardIos } from 'react-icons/md'
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const VerifyEmail = ({ propsInfo }) => {
@@ -70,7 +70,7 @@ const VerifyEmail = ({ propsInfo }) => {
                 </div>
 
             </div>
-
+            <Toaster/>
         </form>
     )
 }

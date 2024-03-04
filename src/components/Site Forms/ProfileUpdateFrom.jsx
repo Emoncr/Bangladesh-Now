@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ProfileUpdateFrom = ({ userDetails }) => {
 
@@ -123,6 +123,7 @@ const ProfileUpdateFrom = ({ userDetails }) => {
                 </div>
 
             </div>
+            <Toaster/>
         </form>
     )
 }

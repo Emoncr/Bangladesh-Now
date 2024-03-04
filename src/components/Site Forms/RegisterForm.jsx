@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const RegisterForm = () => {
     const [loading, setLoading] = useState(false)
@@ -25,13 +25,13 @@ const RegisterForm = () => {
             const res = await (await fetch("/api/user/create", options)).json();
             setLoading(false)
             if (res.success !== true) {
-                toast.error(res.message)
+                toast.error("Failed!, User Email Already Exist")
             }
             else {
                 router.push("/login")
             }
         } catch (error) {
-        
+            console.log(error);
             setLoading(false)
             toast.error('Resistration failed!')
         }
@@ -122,8 +122,8 @@ const RegisterForm = () => {
 
                 <div className="relative mt-5 w-full">
                     <button
-                    disabled={loading}
-                    className="bg-brand text-white rounded-md px-6 py-2 font-inter font-semibold w-full">
+                        disabled={loading}
+                        className="bg-brand text-white rounded-md px-6 py-2 font-inter font-semibold w-full">
                         {
                             loading ? "Loading..." : "Resister Now"
                         }
@@ -133,6 +133,7 @@ const RegisterForm = () => {
                     <p className="font-inter font-medium  text-center transition ">Already have account? <Link href={"/login"} className='hover:text-brand hover:underline underline ' >Login</Link> </p>
                 </div>
             </div>
+            <Toaster/>
         </form>
     )
 }
