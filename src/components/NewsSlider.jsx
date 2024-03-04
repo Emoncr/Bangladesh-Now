@@ -9,7 +9,7 @@ async function getData(type) {
 
         return data
     } catch (error) {
-        throw new Error("News Carosel Data fetch failed")
+       console.log("News Carosel Data fetch failed")
     }
 }
 

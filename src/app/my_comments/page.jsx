@@ -2,7 +2,7 @@
 import DltComments from '@/components/Comment Components/DltComments';
 import PlainLayout from '@/components/PlainLayout';
 import { cookies } from 'next/headers';
-import { FaClock  } from 'react-icons/fa';
+import { FaClock } from 'react-icons/fa';
 
 
 async function getData(cookies) {
@@ -17,12 +17,12 @@ async function getData(cookies) {
         );
         const data = await res.json()
         if (!data.success) {
-            throw new Error("Comments Fetch failed!")
+            console.log("Comments Fetch failed!");
         }
         return data.data
 
     } catch (error) {
-        throw new Error("Comments Fetch failed!")
+        console.log("Comments Fetch failed!", error);
     }
 }
 
@@ -47,7 +47,7 @@ const MyComments = async () => {
                                             <p className='text-sm sm:text-lg  font-medium text-des_color font-inter'> <strong className='!text-heading_color  font-semibold '>Comment : </strong> {comment.commentText}</p>
                                         </div>
                                         <div className='flex items-center justify-start mt-3 gap-1'>
-                                            <FaClock  /><p>Date: {new Date(comment.createdAt).toLocaleDateString()}</p>
+                                            <FaClock /><p>Date: {new Date(comment.createdAt).toLocaleDateString()}</p>
                                         </div>
 
                                         <DltComments info={comment} />

@@ -8,12 +8,12 @@ async function getData(id) {
         );
         const data = await res.json()
         if (!data.success) {
-            throw new Error("Commnet Fetch failed!")
+           console.log("Commnet Fetch failed!")
         }
         return data.data
 
     } catch (error) {
-        throw new Error("Comment Fetch failed!", error)
+       console.log("Comment Fetch failed!", error)
     }
 }
 

@@ -7,7 +7,8 @@ import NewsSlider from "./NewsSlider";
 const getData = async () => {
   const res = await fetch(`${process.env.BASE_URL}/api/news_list/type?type=feature`)
   if (!res.ok) {
-    throw new Error("Feature News API Calling Falied!")
+   console.log("Feature News API Calling Falied!")
+    
   }
   return res.json()
 }
