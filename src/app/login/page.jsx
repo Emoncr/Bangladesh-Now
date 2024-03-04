@@ -1,13 +1,13 @@
 import LoginFrom from '@/components/Site Forms/LoginFrom'
 import { checkLogin } from '@/utils/checkAuth';
-// import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 
 
 const Login = () => {
 
     const isLogin = checkLogin();
-    // isLogin && redirect("/")
+    isLogin && redirect("/")
 
 
     return (

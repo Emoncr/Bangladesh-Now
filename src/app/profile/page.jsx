@@ -1,7 +1,7 @@
 import PlainLayout from '@/components/PlainLayout'
 import ProfileUpdateFrom from '@/components/Site Forms/ProfileUpdateFrom'
 import { cookies } from 'next/headers';
-// import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 
 async function getData(cookies) {
@@ -17,12 +17,12 @@ async function getData(cookies) {
         const data = await res.json()
  
         if (data.success === false) {
-            // redirect("/")
+            redirect("/")
         }
         return data.user
 
     } catch (error) {
-        // redirect("/")
+        redirect("/")
     }
 }
 
