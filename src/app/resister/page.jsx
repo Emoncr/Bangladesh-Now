@@ -1,3 +1,7 @@
+export const dynamic = 'force-dynamic';
+
+
+
 import RegisterForm from '@/components/Site Forms/RegisterForm'
 import Link from 'next/link'
 import React from 'react'

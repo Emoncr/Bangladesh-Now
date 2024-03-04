@@ -18,6 +18,6 @@ export const POST = async (req, res, next) => {
       { status: 201 }
     );
   } catch (error) {
-    return NextResponse.json({ success: false, error }, { status: 500 });
+    return NextResponse.json({ success: false, error:error.toString() }, { status: 500 });
   }
 };

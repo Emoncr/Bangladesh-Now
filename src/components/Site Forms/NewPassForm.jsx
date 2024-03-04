@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 import { MdArrowForwardIos } from "react-icons/md";
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation'
 
 
@@ -76,7 +76,7 @@ const NewPassForm = ({ propsInfo }) => {
 
                 </div>
             </form>
-
+            <Toaster/>
 
         </>
     )

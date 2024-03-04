@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { MdArrowForwardIos } from 'react-icons/md'
 
 const VerifyOTP = ({ propsInfo }) => {
@@ -66,6 +66,7 @@ const VerifyOTP = ({ propsInfo }) => {
         </div>
 
       </div>
+      <Toaster/>
     </form>
   )
 }
