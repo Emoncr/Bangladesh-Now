@@ -16,7 +16,7 @@ async function getData(news) {
         return data
 
     } catch (error) {
-        throw new Error("Newslist Fetch failed!", error)
+       console.log("Newslist Fetch failed!", error)
     }
 }
 

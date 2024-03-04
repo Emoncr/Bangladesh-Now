@@ -11,13 +11,13 @@ async function getData() {
         const res = await fetch(`${process.env.BASE_URL}/api/category/categories`);
         const data = await res.json()
         if (!data.success) {
-            throw new Error("Navlist Fetch failed!")
+           console.log("Navlist Fetch failed!")
         }
         return data.categories
 
     } catch (error) {
 
-        throw new Error("Navlist Fetch failed!")
+       console.log("Navlist Fetch failed!")
     }
 }
 

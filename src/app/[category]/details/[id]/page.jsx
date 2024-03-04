@@ -7,17 +7,17 @@ import { FaCommentAlt } from "react-icons/fa";
 
 async function getData(id) {
     try {
-        const requestData = await fetch(`${process.env.BASE_URL}/api/news_list/details?id=${id}`,{
+        const requestData = await fetch(`${process.env.BASE_URL}/api/news_list/details?id=${id}`, {
             cache: "no-store"
         });
         const res = await requestData.json()
 
         if (!res.success) {
-            throw new Error("News details data fetch failed!")
+            console.log("Details Page Error");
         }
         return res.data
     } catch (error) {
-        throw new Error("Details Page Error")
+        console.log("Details Page Error");
     }
 }
 
