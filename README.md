@@ -2,7 +2,7 @@
 ### Wellcome to my another application called **Bangladesh Now**
 
 #### About this application:
-📰Bangladesh Now is a full-stack news portal web app developed with modern technologies like Next.js 14, Prisma, and PostgreSQL Database. It offers various features such as news search, filtering, commenting 💬, authentication 🔓, forget password functionality, and more. The app aims to provide accurate and objective news to the audience across the country.
+📰Bangladesh Now is a full-stack news portal web app developed with modern technologies like __Nextjs14__, __Prisma__, and __PostgreSQL__ Database. It offers various features such as news search, filtering, commenting 💬, authentication 🔓, forget password functionality, and more. The app aims to provide accurate and objective news to the audience across the country.
 
 
 #### 🌐 Visit the website: https://bangladesh-now.vercel.app/
