@@ -4,12 +4,9 @@
 #### About this application:
 📰Bangladesh Now is a full-stack news portal web app developed with modern technologies like Next.js 14, Prisma, and PostgreSQL Database. It offers various features such as news search, filtering, commenting 💬, authentication 🔓, forget password functionality, and more. The app aims to provide accurate and objective news to the audience across the country.
 
-wikihow.com
-https://www.wikihow.com › Waving-Emoji
-Search for: Wha
 
-##### 🌐 Visit the website: https://lnkd.in/epsCTVT3
-##### 🔗 Github Repository: https://lnkd.in/eRv4BHtc
+## 🌐 Visit the website: https://bangladesh-now.vercel.app/
+
 
 ###Tech Stack:
 Next.js: Empowering lightning-fast and scalable frontend and Backend APIs.
@@ -31,7 +28,7 @@ Forget Password: Reset passwords via email in case of forgetfulness.
 
 Don't miss out! 🚀 Explore this modern-designed news portal web app and share your feedback.
 
-##### 🌐 Visit the website: https://lnkd.in/epsCTVT3
-##### 🔗 Github Repository: https://lnkd.in/eRv4BHtc
+##### 🌐 Visit the website: https://bangladesh-now.vercel.app/
+
 
 Thank you! 🙏
